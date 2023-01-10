@@ -20,8 +20,6 @@ public class Ticket {
     @Column(name="Ticket_category")
     private TicketCategory ticketCategory;
 
-   @OneToOne(fetch = FetchType.EAGER)
-    private  Client ownerId;
 
    public Ticket(){
 
@@ -32,7 +30,6 @@ public class Ticket {
         this.startDate = startDate;
         this.endDate = endDate;
         this.ticketCategory = ticketCategory;
-        this.ownerId = ownerId;
     }
 
     public Long getId() {
@@ -47,23 +44,14 @@ public class Ticket {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
 
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
 
     public TicketCategory getTicketCategory() {
         return ticketCategory;
     }
 
-    public void setTicketCategory(TicketCategory ticketCategory) {
-        this.ticketCategory = ticketCategory;
-    }
 }

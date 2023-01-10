@@ -15,8 +15,6 @@ public class Building {
     @Column(name = "Closing_Time")
     private LocalDate closicTime;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Trainer closingPerson;
 
     public Building(){
 
@@ -26,7 +24,6 @@ public class Building {
         this.id = id;
         this.openTime = openTime;
         this.closicTime = closicTime;
-        this.closingPerson = closingPerson;
     }
 
     public Long getId() {
@@ -45,7 +42,4 @@ public class Building {
         return closicTime;
     }
 
-    public Trainer getClosingPerson() {
-        return closingPerson;
-    }
 }

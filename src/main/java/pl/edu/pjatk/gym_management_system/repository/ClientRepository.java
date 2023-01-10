@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 import pl.edu.pjatk.gym_management_system.model.Client;
 
 import java.util.Optional;
-
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    Optional<Client> findClientByFistNameAndLastName(String firstName, String lastName);
-    Client findClientByFirstName(String firstName);
+    Optional<Client> findClientByFirstNameAndLastName(String firstName, String lastName);
+
 }
