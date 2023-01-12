@@ -4,6 +4,7 @@ import pl.edu.pjatk.gym_management_system.model.enums.Gender;
 import pl.edu.pjatk.gym_management_system.model.enums.TrainerQualification;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "trainer")
@@ -22,14 +23,18 @@ public class Trainer {
     @Column(name = "qualification")
     private TrainerQualification qualification;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Client> client;
 
-    public Trainer(Long id, String firstName, String lastName, int age, Gender gender, TrainerQualification qualification) {
+
+    public Trainer(Long id, String firstName, String lastName, int age, Gender gender, TrainerQualification qualification, List<Client> client) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
         this.qualification = qualification;
+        this.client = client;
     }
 
     public Trainer() {
@@ -58,6 +63,10 @@ public class Trainer {
 
     public Gender getGender() {
         return gender;
+    }
+
+    public List<Client> getClient() {
+        return client;
     }
 
     public void setId(Long id) {

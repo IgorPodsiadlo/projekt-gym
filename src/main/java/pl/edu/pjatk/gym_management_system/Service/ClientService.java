@@ -20,7 +20,13 @@ public class ClientService {
     }
     public List<Client> findAllClients(){return clientRepository.findAll();}
 
-    public Client getClientById(Long id){return clientRepository.getReferenceById(id);}
+    public Client getClientById(Long id) {
+        Optional<Client> b = clientRepository.findById(id);
+        if (b.isPresent()) {
+            return b.get();
+        }
+        throw new IllegalArgumentException();
+    }
 
     public void deleteClientById(Long id){clientRepository.deleteById(id);}
 

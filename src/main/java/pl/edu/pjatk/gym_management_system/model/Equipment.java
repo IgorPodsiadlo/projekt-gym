@@ -2,6 +2,9 @@ package pl.edu.pjatk.gym_management_system.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+
 @Entity
 @Table
 public class Equipment {
@@ -18,17 +21,22 @@ public class Equipment {
     @Column(name = "needs_repair")
     private boolean needsfixing;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Client> client;
+
 
 
 public Equipment(){
 
 }
 
-    public Equipment(Long id, LocalDate startDate, LocalDate endDate, boolean needsfixing, Client client) {
+    public Equipment(Long id, LocalDate startDate, LocalDate endDate, boolean needsfixing, List<Client> client) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.needsfixing = needsfixing;
+        this.client = client;
+
 
     }
 
