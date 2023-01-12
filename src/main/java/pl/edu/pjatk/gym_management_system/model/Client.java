@@ -5,6 +5,7 @@ import pl.edu.pjatk.gym_management_system.model.enums.Gender;
 
 import javax.persistence.*;
 import java.beans.ConstructorProperties;
+import java.util.List;
 
 @Entity
 @Table(name = "Client")
@@ -21,16 +22,21 @@ public class Client {
     @Column(name="Gender")
     private Gender gender;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Ticket ticket;
+
     public Client(){
 
     }
 
-    public Client(Long id, String firstName, String lastName, int age, Gender gender) {
+    public Client(Long id, String firstName, String lastName, int age, Gender gender, Ticket ticket) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
+        this.ticket = ticket;
+
     }
 
     public void setId(Long id) {
@@ -55,5 +61,29 @@ public class Client {
 
     public Gender getGender() {
         return gender;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

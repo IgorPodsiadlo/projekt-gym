@@ -23,11 +23,13 @@ public class Trainer {
     @Column(name = "qualification")
     private TrainerQualification qualification;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Client> client;
+    @ManyToOne()
+    @JoinColumn(name = "client_id" , referencedColumnName = "id" , insertable = false, updatable = false)
+    private Client client;
 
 
-    public Trainer(Long id, String firstName, String lastName, int age, Gender gender, TrainerQualification qualification, List<Client> client) {
+
+    public Trainer(Long id, String firstName, String lastName, int age, Gender gender, TrainerQualification qualification,Client client) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,6 +37,7 @@ public class Trainer {
         this.gender = gender;
         this.qualification = qualification;
         this.client = client;
+
     }
 
     public Trainer() {
@@ -65,11 +68,30 @@ public class Trainer {
         return gender;
     }
 
-    public List<Client> getClient() {
-        return client;
-    }
 
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setQualification(TrainerQualification qualification) {
+        this.qualification = qualification;
+    }
+
+
 }

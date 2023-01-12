@@ -40,4 +40,22 @@ public class ClientService {
         }
         throw new IllegalArgumentException();
     }
+
+    public Client updateClient(Long id, Client updatedClient){
+        Client clientToUpdate = getClientById(id);
+        if (updatedClient.getAge() != 0){
+            clientToUpdate.setAge(updatedClient.getAge());
+
+        }
+        if(updatedClient.getGender() != null){
+            clientToUpdate.setGender(updatedClient.getGender());
+        }
+        if (updatedClient.getFirstName() != null){
+            clientToUpdate.setFirstName(updatedClient.getFirstName());
+        }
+        if (updatedClient.getLastName() != null){
+            clientToUpdate.setLastName(updatedClient.getLastName());
+        }
+        return  clientRepository.save(clientToUpdate);
+    }
 }

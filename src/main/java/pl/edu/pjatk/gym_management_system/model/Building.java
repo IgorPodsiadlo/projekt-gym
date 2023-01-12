@@ -42,4 +42,11 @@ public class Building {
         return closicTime;
     }
 
+    public void setOpenTime(LocalDate openTime) {
+        this.openTime = openTime;
+    }
+
+    public void setClosicTime(LocalDate closicTime) {
+        this.closicTime = closicTime;
+    }
 }

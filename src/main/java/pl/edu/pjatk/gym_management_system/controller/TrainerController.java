@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pjatk.gym_management_system.Service.TrainerService;
+import pl.edu.pjatk.gym_management_system.model.Building;
+import pl.edu.pjatk.gym_management_system.model.Client;
 import pl.edu.pjatk.gym_management_system.model.Trainer;
 import pl.edu.pjatk.gym_management_system.model.enums.TrainerQualification;
 
@@ -39,5 +41,13 @@ public class TrainerController {
     public ResponseEntity<Trainer> findTrainerByQualification(@RequestParam(name = "qualification") TrainerQualification qualification){
         return  ResponseEntity.ok(trainerService.findTrainerByQualification(qualification));
 
+    }
+    @GetMapping("/{name}/{lastname}")
+    public ResponseEntity<Trainer> findTrainerByFirstNameAndLastName(@PathVariable("name") String name , @PathVariable("lastname") String lastname){
+        return  ResponseEntity.ok(trainerService.findTrainerByFirstNameAndLastName(name, lastname));
+    }
+    @PutMapping("{id}")
+    public  ResponseEntity<Trainer> updateTrainer (@RequestBody Trainer trainer, @PathVariable("id") Long id){
+        return  ResponseEntity.ok(trainerService.updateTrainer(id,trainer));
     }
 }

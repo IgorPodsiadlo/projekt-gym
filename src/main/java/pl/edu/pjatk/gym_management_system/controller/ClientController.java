@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pjatk.gym_management_system.Service.ClientService;
+import pl.edu.pjatk.gym_management_system.model.Building;
 import pl.edu.pjatk.gym_management_system.model.Client;
 
 import java.util.List;
@@ -36,8 +37,12 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getClientById(id));
     }
     @DeleteMapping
-    public ResponseEntity<String> deleteAuthorById(@RequestParam("id") Long id){
+    public ResponseEntity<String> deleteClientById(@RequestParam("id") Long id){
         clientService.deleteClientById(id);
         return ResponseEntity.ok("ok");
+    }
+    @PutMapping("{id}")
+    public  ResponseEntity<Client> updateClient (@RequestBody Client client, @PathVariable("id") Long id){
+        return  ResponseEntity.ok((clientService.updateClient(id,client)));
     }
 }

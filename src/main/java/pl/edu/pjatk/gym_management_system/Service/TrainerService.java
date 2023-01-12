@@ -46,4 +46,30 @@ public class TrainerService {
         }
         throw new IllegalArgumentException();
     }
+    public Trainer updateTrainer (Long id , Trainer updatedTrainer){
+        Trainer trainerToUpdate = getTrainerById(id);
+
+        if (updatedTrainer.getFirstName() != null){
+            trainerToUpdate.setFirstName(updatedTrainer.getFirstName());
+        }
+
+        if (updatedTrainer.getLastName() != null){
+            trainerToUpdate.setLastName(updatedTrainer.getLastName());
+
+        }
+        if(updatedTrainer.getAge() !=  0){
+            trainerToUpdate.setAge(updatedTrainer.getAge());
+
+        }
+        if(updatedTrainer.getGender() != null){
+            trainerToUpdate.setGender(updatedTrainer.getGender());
+        }
+
+        if (updatedTrainer.getQualification() != null){
+            trainerToUpdate.setQualification(updatedTrainer.getQualification());
+        }
+
+
+        return trainerRepository.save(trainerToUpdate);
+    }
 }

@@ -60,4 +60,23 @@ public Equipment(){
         return needsfixing;
     }
 
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setNeedsfixing(boolean needsfixing) {
+        this.needsfixing = needsfixing;
+    }
+
+    public List<Client> getClient() {
+        return client;
+    }
+
+    public void setClient(List<Client> client) {
+        this.client = client;
+    }
 }

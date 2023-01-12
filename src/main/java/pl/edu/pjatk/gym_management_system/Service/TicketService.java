@@ -43,6 +43,18 @@ public Ticket createTicket(Ticket ticket){
         }
         throw new IllegalArgumentException();
     }
-
+public Ticket updateTicket(Long id, Ticket updatedTicket){
+        Ticket ticketToUpdate = getTicketById(id);
+        if (updatedTicket.getStartDate() != null){
+            ticketToUpdate.setStartDate(updatedTicket.getStartDate());
+        }
+        if (updatedTicket.getEndDate() != null){
+            ticketToUpdate.setEndDate(updatedTicket.getEndDate());
+        }
+        if (updatedTicket.getTicketCategory() != null){
+            ticketToUpdate.setTicketCategory(updatedTicket.getTicketCategory());
+        }
+        return ticketRepository.save(ticketToUpdate);
+}
 
 }
