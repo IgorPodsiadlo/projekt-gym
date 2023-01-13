@@ -1,11 +1,8 @@
 package pl.edu.pjatk.gym_management_system.springSecurity;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-import pl.edu.pjatk.gym_management_system.model.User;
 
 import java.util.Collection;
 import java.util.Collections;

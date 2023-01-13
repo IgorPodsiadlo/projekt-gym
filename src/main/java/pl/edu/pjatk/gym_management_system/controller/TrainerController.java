@@ -22,7 +22,7 @@ public class TrainerController {
     @GetMapping
     public ResponseEntity<List<Trainer>> getAllTrainer(){return  ResponseEntity.ok(trainerService.findAllTrainers());}
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Trainer> createTrainer(@RequestBody Trainer trainer){
         return ResponseEntity.ok(trainerService.createTrainer(trainer));
     }
