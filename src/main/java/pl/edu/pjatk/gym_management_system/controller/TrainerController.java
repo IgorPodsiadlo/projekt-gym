@@ -12,7 +12,7 @@ import pl.edu.pjatk.gym_management_system.model.enums.TrainerQualification;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Trainer/")
+@RequestMapping("/api/Trainer/")
 public class TrainerController {
     TrainerService trainerService;
 

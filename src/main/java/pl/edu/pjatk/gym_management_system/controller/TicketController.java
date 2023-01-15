@@ -10,7 +10,7 @@ import pl.edu.pjatk.gym_management_system.model.enums.TicketCategory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Ticket/")
+@RequestMapping("/api/Ticket/")
 public class TicketController {
 
     TicketService ticketService;

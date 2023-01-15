@@ -10,7 +10,7 @@ import pl.edu.pjatk.gym_management_system.model.Client;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Client/")
+@RequestMapping("/api/Client/")
 public class ClientController {
     ClientService clientService;
 

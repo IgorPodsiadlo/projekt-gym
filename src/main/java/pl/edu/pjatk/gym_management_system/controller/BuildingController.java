@@ -11,7 +11,7 @@ import pl.edu.pjatk.gym_management_system.model.Client;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Building/")
+@RequestMapping("/api/Building/")
 public class BuildingController {
 
     BuildingService buildingService;

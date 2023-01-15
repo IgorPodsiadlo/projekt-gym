@@ -11,7 +11,7 @@ public class User {
     private  String username;
     private String password;
     private String role;
-    private String authorities;
+
 
     public Long getId() {
         return id;
@@ -41,13 +41,7 @@ public class User {
         return role;
     }
 
-    public String getAuthorities() {
-        return authorities;
-    }
 
-    public void setAuthorities(String authorities) {
-        this.authorities = authorities;
-    }
 
     public void setRole(String role) {
         this.role = role;

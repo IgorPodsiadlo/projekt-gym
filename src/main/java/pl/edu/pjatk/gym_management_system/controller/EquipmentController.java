@@ -11,7 +11,7 @@ import pl.edu.pjatk.gym_management_system.model.Equipment;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Equipment/")
+@RequestMapping("/api/Equipment/")
 public class EquipmentController {
     EquipmentService equipmentService;
 

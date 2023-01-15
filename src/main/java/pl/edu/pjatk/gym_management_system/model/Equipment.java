@@ -2,7 +2,7 @@ package pl.edu.pjatk.gym_management_system.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Collections;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,10 +13,10 @@ public class Equipment {
     private Long id;
 
     @Column(name = "Start_date")
-    private LocalDate startDate;
+    private LocalDateTime startDate;
 
     @Column(name="End_date")
-    private LocalDate endDate;
+    private LocalDateTime endDate;
 
     @Column(name = "needs_repair")
     private boolean needsfixing;
@@ -30,7 +30,7 @@ public Equipment(){
 
 }
 
-    public Equipment(Long id, LocalDate startDate, LocalDate endDate, boolean needsfixing, List<Client> client) {
+    public Equipment(Long id, LocalDateTime startDate, LocalDateTime endDate, boolean needsfixing, List<Client> client) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -48,11 +48,11 @@ public Equipment(){
         this.id = id;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public LocalDate getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
@@ -60,11 +60,11 @@ public Equipment(){
         return needsfixing;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

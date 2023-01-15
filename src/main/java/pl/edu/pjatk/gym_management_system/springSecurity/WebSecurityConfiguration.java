@@ -37,8 +37,10 @@ public class WebSecurityConfiguration  {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth -> auth
-                        .antMatchers("/**").hasAuthority("ADMIN")
-                        .antMatchers(HttpMethod.POST).hasRole("ADMIN")
+                        .antMatchers("api/**").hasAnyAuthority("ADMIN","USER")
+                        .antMatchers(HttpMethod.POST, "/**").hasAuthority("ADMIN")
+                        .antMatchers(HttpMethod.DELETE, "/**").hasAuthority("ADMIN")
+                        .antMatchers(HttpMethod.PUT, "/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
 
                 )

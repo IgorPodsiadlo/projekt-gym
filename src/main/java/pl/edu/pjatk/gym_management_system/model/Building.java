@@ -1,7 +1,8 @@
 package pl.edu.pjatk.gym_management_system.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "Building")
 public class Building {
@@ -10,17 +11,17 @@ public class Building {
     private Long id;
 
     @Column(name = "Opening_Time")
-    private LocalDate openTime;
+    private LocalDateTime openTime;
 
     @Column(name = "Closing_Time")
-    private LocalDate closicTime;
+    private LocalDateTime closicTime;
 
 
     public Building(){
 
     }
 
-    public Building(Long id, LocalDate openTime, LocalDate closicTime, Trainer closingPerson) {
+    public Building(Long id, LocalDateTime openTime, LocalDateTime closicTime) {
         this.id = id;
         this.openTime = openTime;
         this.closicTime = closicTime;
@@ -34,19 +35,19 @@ public class Building {
         this.id = id;
     }
 
-    public LocalDate getOpenTime() {
+    public LocalDateTime getOpenTime() {
         return openTime;
     }
 
-    public LocalDate getClosicTime() {
+    public LocalDateTime getClosicTime() {
         return closicTime;
     }
 
-    public void setOpenTime(LocalDate openTime) {
+    public void setOpenTime(LocalDateTime openTime) {
         this.openTime = openTime;
     }
 
-    public void setClosicTime(LocalDate closicTime) {
+    public void setClosicTime(LocalDateTime closicTime) {
         this.closicTime = closicTime;
     }
 }
