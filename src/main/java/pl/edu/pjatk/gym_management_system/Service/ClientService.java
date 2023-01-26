@@ -7,9 +7,13 @@ import pl.edu.pjatk.gym_management_system.repository.ClientRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
+
 @Service
 public class ClientService {
     ClientRepository clientRepository;
+
+
 
     @Autowired
     public void ClientService(ClientRepository clientRepository){

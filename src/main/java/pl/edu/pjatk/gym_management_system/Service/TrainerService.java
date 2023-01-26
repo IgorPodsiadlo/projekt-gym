@@ -32,15 +32,11 @@ public class TrainerService {
 
     public void deleteClientById(Long id){trainerRepository.deleteById(id);}
 
-    public Trainer findTrainerByQualification(TrainerQualification qualification){
-        Optional<Trainer> trainer = trainerRepository.findTrainerByQualification(qualification);
-        if(trainer.isPresent()){
-            return trainer.get();
-        }
-        throw new IllegalArgumentException();
+    public List<Trainer> findTrainerByQualification(TrainerQualification qualification){
+        return trainerRepository.findTrainerByQualification(qualification);
     }
-    public Trainer findTrainerByFirstNameAndLastName(String firstName, String LastName){
-        Optional<Trainer> trainer = trainerRepository.findTrainerByFirstNameAndLastName(firstName, LastName);
+    public Trainer findTrainerByFirstNameAndLastName(String firstname, String Lastname){
+        Optional<Trainer> trainer = trainerRepository.findTrainerByFirstNameAndLastName(firstname, Lastname);
         if(trainer.isPresent()){
             return trainer.get();
         }

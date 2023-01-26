@@ -36,12 +36,8 @@ public Ticket createTicket(Ticket ticket){
 
 
 
-    public Ticket findTicketByCategory(TicketCategory ticketCategory) {
-        Optional<Ticket> b = ticketRepository.findTicketByTicketCategory(ticketCategory);
-        if (b.isPresent()) {
-            return b.get();
-        }
-        throw new IllegalArgumentException();
+    public List<Ticket> findTicketByCategory(TicketCategory ticketCategory) {
+       return  ticketRepository.findTicketByTicketCategory(ticketCategory);
     }
 public Ticket updateTicket(Long id, Ticket updatedTicket){
         Ticket ticketToUpdate = getTicketById(id);

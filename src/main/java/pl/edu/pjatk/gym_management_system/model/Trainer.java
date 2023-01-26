@@ -23,7 +23,7 @@ public class Trainer {
     @Column(name = "qualification")
     private TrainerQualification qualification;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id" , referencedColumnName = "id" , insertable = false, updatable = false)
     private Client client;
 
@@ -93,5 +93,11 @@ public class Trainer {
         this.qualification = qualification;
     }
 
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

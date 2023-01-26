@@ -30,12 +30,8 @@ public List<Equipment> findAllEquipment(){return  equipmentRepository.findAll();
         throw new IllegalArgumentException();
     }
 
-    public  Equipment findEquipmentByNeedsfixing(Boolean  needs_repair){
-        Optional<Equipment> b = equipmentRepository.findEquipmentByNeedsfixing(needs_repair);
-        if (b.isPresent()) {
-            return b.get();
-        }
-        throw new IllegalArgumentException();
+    public  List<Equipment> findEquipmentByNeedsfixing(Boolean  needs_repair){
+       return equipmentRepository.findEquipmentByNeedsfixing(needs_repair);
 
     }
 
